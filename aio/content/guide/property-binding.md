@@ -23,91 +23,90 @@ Si necesitas leer la propiedad de un elemento destino o llamar a alguno de sus m
 echa un vistazo a la referencia de la API para los decoradores [ViewChild](api/core/ViewChild) y
 [ContentChild](api/core/ContentChild).
 
-## Examples
+## Ejemplos
 
-The most common property binding sets an element property to a component
-property value. An example is
-binding the `src` property of an image element to a component's `itemImageUrl` property:
+El enlace de propiedad más común establece la propiedad de un elemento
+como valor de propiedad de un componente. Un ejemplo es
+enlazar la propiedad `src` de un elemento de imagen desde la propiedad `itemImageUrl` (_urlDeImagen_) de un componente:
 
 <code-example path="property-binding/src/app/app.component.html" region="property-binding" header="src/app/app.component.html"></code-example>
 
-Here's an example of binding to the `colSpan` property. Notice that it's not `colspan`,
-which is the attribute, spelled with a lowercase `s`.
+En otro ejemplo, enlazamos la propiedad `colSpan`. Ten cuidado de no confundirla con `colspan`,
+la que es el atributo HTML escrito con una `s` minúscula.
 
 <code-example path="property-binding/src/app/app.component.html" region="colSpan" header="src/app/app.component.html"></code-example>
 
-For more details, see the [MDN HTMLTableCellElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCellElement) documentation.
+Para más detalles, revisa la documentación de [HTMLTableCellElement en MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCellElement).
 
-For more information about `colSpan` and `colspan`, see the [Attribute binding](guide/attribute-binding#colspan) guide.
+Para más información sobre este ejemplo de enlace con `colSpan` y `colspan`, echa un vistazo a la guía de [Enlaces de atributo](guide/attribute-binding#colspan).
 
-Another example is disabling a button when the component says that it `isUnchanged`:
+Otro ejemplo es desactivar un botón cuando el componente posee una propiedad `isUnchanged` (_noPoseeCambios_):
 
 <code-example path="property-binding/src/app/app.component.html" region="disabled-button" header="src/app/app.component.html"></code-example>
 
-Another is setting a property of a directive:
+Otro ejemplo, asignar un valor a la propiedad de una directiva:
 
 <code-example path="property-binding/src/app/app.component.html" region="class-binding" header="src/app/app.component.html"></code-example>
 
-Yet another is setting the model property of a custom component&mdash;a great way
-for parent and child components to communicate:
+Otro más es asignar un objeto como valor a la propiedad de un componente&mdash;la que es una excelente
+manera de comunicar componentes padres con hijos:
 
 <code-example path="property-binding/src/app/app.component.html" region="model-property-binding" header="src/app/app.component.html"></code-example>
 
-## Binding targets
+## Destinos de enlaces de propiedad
 
-An element property between enclosing square brackets identifies the target property.
-The target property in the following code is the image element's `src` property.
+Una propiedad de elemento encerrada en corchetes (_square brackets_) se identifica
+como propiedad de destino.
+En el código a continuación, la propiedad destino es `src`, del elemento de imagen.
 
 <code-example path="property-binding/src/app/app.component.html" region="property-binding" header="src/app/app.component.html"></code-example>
 
-There's also the `bind-` prefix alternative:
+También es posible usar la nomenclatura alternativa, añadiendo el prefijo `bind-`:
 
 <code-example path="property-binding/src/app/app.component.html" region="bind-prefix" header="src/app/app.component.html"></code-example>
 
+En la mayoría de los casos, el nombre del destino es de una propiedad, incluso
+si parece ser el nombre de un atributo.
+En este caso, `src` es el nombre de una propiedad del elemento `<img>`.
 
-In most cases, the target name is the name of a property, even
-when it appears to be the name of an attribute.
-So in this case, `src` is the name of the `<img>` element property.
-
-Element properties may be the more common targets,
-but Angular looks first to see if the name is a property of a known directive,
-as it is in the following example:
+Las propiedades de elemento pueden ser destinos comunes de enlace,
+pero Angular siempre analiza antes si el nombre corresponde a la propiedad de una directiva conocida,
+como en el caso del ejemplo que sigue:
 
 <code-example path="property-binding/src/app/app.component.html" region="class-binding" header="src/app/app.component.html"></code-example>
 
-Technically, Angular is matching the name to a directive `@Input()`,
-one of the property names listed in the directive's `inputs` array
-or a property decorated with `@Input()`.
-Such inputs map to the directive's own properties.
+Técnicamente, Angular está correspondiendo el nombre como si se tratara de una directiva `@Input()`,
+o un nombre de propiedad incluido en el array `inputs` de la directiva,
+o una propiedad decorada con `@Input()`.
+En tales casos se realiza un mapeo hacia las propiedades de la directiva.
 
-If the name fails to match a property of a known directive or element, Angular reports an “unknown directive” error.
+Si el nombre no se corresponde con una propiedad de una directiva o elemento conocido, Angular reporta un error de “directiva desconocida” (_unknown directive_).
 
 <div class="alert is-helpful">
 
-Though the target name is usually the name of a property,
-there is an automatic attribute-to-property mapping in Angular for
-several common attributes. These include `class`/`className`, `innerHtml`/`innerHTML`, and
+Aunque el nombre del destino usualmente es el nombre de una propiedad,
+Angular posee un mapeo automático de attributo-a-propiedad para
+varios atributos comunes. Entre ellos se incluyen `class`/`className`, `innerHtml`/`innerHTML`, y
 `tabindex`/`tabIndex`.
 
 </div>
 
+## Evitar efectos secundarios
 
-## Avoid side effects
+El evaluamiento de una expresión de plantilla no debería tener efectos secundarios visibles.
+El propio lenguaje de expresión, o la manera en que escribes expresiones de plantilla,
+favorece este aspecto hasta cierto punto;
+no puedes simplemente asignar valores a cualquier cosa dentro de una expresión de enlace de propiedad
+ni usar los operadores de incremento o reducción.
 
-Evaluation of a template expression should have no visible side effects.
-The expression language itself, or the way you write template expressions,
-helps to a certain extent;
-you can't assign a value to anything in a property binding expression
-nor use the increment and decrement operators.
-
-For example, you could have an expression that invoked a property or method that had
-side effects. The expression could call something like `getFoo()` where only you
-know what `getFoo()` does. If `getFoo()` changes something
-and you happen to be binding to that something,
-Angular may or may not display the changed value. Angular may detect the
-change and throw a warning error.
-As a best practice, stick to properties and to methods that return
-values and avoid side effects.
+Pero por ejempo, podrías tener una expresión que invocase una propiedad o método el cual tuviera
+efectos secundarios. La expresión internamente podría llamar a un método `getFoo()` y sólo tú sabrías
+lo que `getFoo()` hace. Si `getFoo()` cambia algo más
+y estás enlazando algún dato a ese algo más,
+Angular podría no mostrar el dato correcto. O Angular podría detectar el
+cambio y levantar una advertencia o un error.
+Como consejo y buena práctica, es mejor atenerse a enlazar propiedades y métodos que devuelvan
+valores para evitar efectos secundarios.
 
 ## Return the proper type
 
