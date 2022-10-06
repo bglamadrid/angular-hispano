@@ -1,26 +1,27 @@
 
-# Enlace de propiedades `[propiedad]`
+# Property binding `[property]`
 
-Puedes usar los enlaces de propiedad para _asignar valores_ a datos dentro de elementos (_propiedades_) que posean decoradores de directiva `@Input()`.
+Use property binding to _set_ properties of target elements or
+directive `@Input()` decorators.
 
 <div class="alert is-helpful">
 
-Echa un vistazo al <live-example></live-example>, un ejemplo en acción usando los bloques de código de esta guía.
+See the <live-example></live-example> for a working example containing the code snippets in this guide.
 
 </div>
 
-## Enlace de una sola vía (One-way binding)
+## One-way in
 
-Este tipo de enlace permite que un dato fluya en una única dirección,
-desde una propiedad origen de un componente hacia la propiedad destino de un elemento.
+Property binding flows a value in one direction,
+from a component's property into a target element property.
 
-No puedes usar enlaces de propiedad
-para leer ni recibir valores desde elemento destino. Asimismo, tampoco puedes utilizar
-enlaces de propiedad para llamar a métodos del elemento destino.
-Si el elemento en cuestión dispara eventos, puedes instalar un escucha utilizando [enlaces de eventos](guide/event-binding).
+You can't use property
+binding to read or pull values out of target elements. Similarly, you cannot use
+property binding to call a method on the target element.
+If the element raises events, you can listen to them with an [event binding](guide/event-binding).
 
-Si necesitas leer la propiedad de un elemento destino o llamar a alguno de sus métodos,
-echa un vistazo a la referencia de la API para los decoradores [ViewChild](api/core/ViewChild) y
+If you must read a target element property or call one of its methods,
+see the API reference for [ViewChild](api/core/ViewChild) and
 [ContentChild](api/core/ContentChild).
 
 ## Examples
