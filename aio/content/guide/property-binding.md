@@ -166,60 +166,60 @@ e *inicializa la propiedad de destino* con ese string:
 Omitir los corchetes renderizará el texto
 `parentItem`, no el valor de la propiedad `parentItem`.
 
-## One-time string initialization
+## Inicialización aislada de string
 
-You *should* omit the brackets when all of the following are true:
+*Sí deberías* omitir los corchetes cuando todas las condiciones siguientes se cumplen:
 
-* The target property accepts a string value.
-* The string is a fixed value that you can put directly into the template.
-* This initial value never changes.
+* La propiedad destino acepta un valor de tipo string.
+* El string es un valor fijo que puedes ingresar directamente en la plantilla.
+* Este valor inicial nunca cambia.
 
-You routinely initialize attributes this way in standard HTML, and it works
-just as well for directive and component property initialization.
-The following example initializes the `prefix` property of the `StringInitComponent` to a fixed string,
-not a template expression. Angular sets it and forgets about it.
+Esta es la manera en que inicializas atributos en la sintaxis estándar de HTML, y funciona
+sin problemas para inicializar directivas y propiedades de componentes.
+El ejemplo siguiente inicializa la propiedad `prefix` del `StringInitComponent` con un string fijo,
+y no una expresión de plantilla. Angular le asigna el valor y se olvida de ella.
 
 <code-example path="property-binding/src/app/app.component.html" region="string-init" header="src/app/app.component.html"></code-example>
 
-The `[item]` binding, on the other hand, remains a live binding to the component's `currentItems` property.
+El enlace de `[item]`, en cambio, se mantiene unido a la propiedad `currentItems` del componente.
 
-## Property binding vs. interpolation
+## Enlace de propiedad vs. interpolación
 
-You often have a choice between interpolation and property binding.
-The following binding pairs do the same thing:
+A menudo tienes la posibilidad de elegir entre realizar uniones de datos con interpolación o con enlace de propiedad.
+Cada uno de los pares de unión siguientes tienen el mismo efecto:
 
 <code-example path="property-binding/src/app/app.component.html" region="property-binding-interpolation" header="src/app/app.component.html"></code-example>
 
-Interpolation is a convenient alternative to property binding in
-many cases. When rendering data values as strings, there is no
-technical reason to prefer one form to the other, though readability
-tends to favor interpolation. However, *when setting an element
-property to a non-string data value, you must use property binding*.
+La interpolación en muchos casos es una alternativa conveniente a la unión de propiedad.
+Cuando se renderizan valores de datos como string, no existe motivo
+técnico para preferir una opción sobre la otra, aunque la legibilidad
+tiende a favorecer la interpolación.
+Sin embargo, *debes usar el enlace de propiedad para asignar un valor que no sea string a la propiedad de un elemento*.
 
-## Content security
+## Seguridad del contenido
 
-Imagine the following malicious content.
+Supongamos que tenemos el siguiente contenido malicioso.
 
 <code-example path="property-binding/src/app/app.component.ts" region="malicious-content" header="src/app/app.component.ts"></code-example>
 
-In the component template, the content might be used with interpolation:
+En la plantilla del componente, este contenido podría ser interpolado:
 
 <code-example path="property-binding/src/app/app.component.html" region="malicious-interpolated" header="src/app/app.component.html"></code-example>
 
-Fortunately, Angular data binding is on alert for dangerous HTML. In the above case,
-the HTML displays as is, and the Javascript does not execute. Angular **does not**
-allow HTML with script tags to leak into the browser, neither with interpolation
-nor property binding.
+Afortunadamente, los enlaces de Angular están alertas ante la posibilidad de encontrar HTML peligroso. En el caso anterior,
+el código HTML se muestra tal cual, y la porción Javascript no se ejecuta. Angular **no permite**
+que se filtre código HTML con etiquetas script al navegador, ni por medio de interpolación
+o enlaces de propiedad.
 
-In the following example, however, Angular [sanitizes](guide/security#sanitization-and-security-contexts)
-the values before displaying them.
+En el ejemplo siguiente, sin embargo, Angular [sanitiza](guide/security#sanitization-and-security-contexts)
+los values antes de mostrarlos.
 
 <code-example path="property-binding/src/app/app.component.html" region="malicious-content" header="src/app/app.component.html"></code-example>
 
-Interpolation handles the `<script>` tags differently than
-property binding but both approaches render the
-content harmlessly. The following is the browser output
-of the `evilTitle` examples.
+La interpolación maneja las etiquetas `<script>` de forma distinta que
+los enlaces de propiedad pero ambas metodologías renderizan el
+contenido de forma segura. La salida representada por el navegador
+de los ejemplos de `evilTitle` anteriores se muestra a continuación.
 
 <code-example language="bash">
 "Template <script>alert("evil never sleeps")</script> Syntax" is the interpolated evil title.
