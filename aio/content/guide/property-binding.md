@@ -108,62 +108,63 @@ cambio y levantar una advertencia o un error.
 Como consejo y buena práctica, es mejor atenerse a enlazar propiedades y métodos que devuelvan
 valores para evitar efectos secundarios.
 
-## Return the proper type
+## Devolver el valor adecuado
 
-The template expression should evaluate to the type of value
-that the target property expects.
-Return a string if the target property expects a string, a number if it
-expects a number, an object if it expects an object, and so on.
+Toda expresión de plantilla debiese ser evaluada con el tipo de valor
+que la propiedad destino espera.
+Deberías devolver un string si la propiedad destino espera un string, o un número si ésta
+espera un número, un objeto si lo que espera es un objeto, y así consecutivamente.
 
-In the following example, the `childItem` property of the `ItemDetailComponent` expects a string, which is exactly what you're sending in the property binding:
+En el siguiente ejemplo, la propiedad `childItem` (__itemHijo__) del `ItemDetailComponent` espera un string, exactamente lo mismo que verás que es enviado a través del enlace de propiedad:
 
 <code-example path="property-binding/src/app/app.component.html" region="model-property-binding" header="src/app/app.component.html"></code-example>
 
-You can confirm this by looking in the `ItemDetailComponent` where the `@Input` type is set to a string:
+Al revisar el `ItemDetailComponent` se puede verificar que la propiedad con el decorador `@Input` ha sido declarada de tipo string:
 <code-example path="property-binding/src/app/item-detail/item-detail.component.ts" region="input-type" header="src/app/item-detail/item-detail.component.ts (setting the @Input() type)"></code-example>
 
-As you can see here, the `parentItem` in `AppComponent` is a string, which the `ItemDetailComponent` expects:
+Y como se aprecia aquí, el `parentItem` (__itemPadre__) del `AppComponent` es un string, justamente lo que `ItemDetailComponent` espera:
 <code-example path="property-binding/src/app/app.component.ts" region="parent-data-type" header="src/app/app.component.ts"></code-example>
 
-### Passing in an object
+### Enlazar objetos
 
-The previous simple example showed passing in a string. To pass in an object,
-the syntax and thinking are the same.
+El sencillo ejemplo anterior demostró el enlazado de un string. No obstante, para enlazar un objeto,
+se usa el mismo fundamento y sintaxis.
 
-In this scenario, `ItemListComponent` is nested within `AppComponent` and the `items` property expects an array of objects.
+En el siguiente escenario, el `ItemListComponent` se anida dentro del `AppComponent` y la propiedad `items` espera recibir un array de objetos.
 
 <code-example path="property-binding/src/app/app.component.html" region="pass-object" header="src/app/app.component.html"></code-example>
 
-The `items` property is declared in the `ItemListComponent` with a type of `Item` and decorated with `@Input()`:
+La propiedad `items` es declarada en el `ItemListComponent` como array de tipo `Item` y decorada con `@Input()`:
 
 <code-example path="property-binding/src/app/item-list/item-list.component.ts" region="item-input" header="src/app/item-list.component.ts"></code-example>
 
-In this sample app, an `Item` is an object that has two properties; an `id` and a `name`.
+En esta aplicación de muestra, un `Item` es un objeto con dos propiedades; `id` y `name`.
 
 <code-example path="property-binding/src/app/item.ts" region="item-class" header="src/app/item.ts"></code-example>
 
-While a list of items exists in another file, `mock-items.ts`, you can
-specify a different item in `app.component.ts` so that the new item will render:
+Mientras una lista de items existe en otro archivo, `mock-items.ts`, puedes
+indicar un item diferente en `app.component.ts` de forma que el nuevo item se renderizará:
 
 <code-example path="property-binding/src/app/app.component.ts" region="pass-object" header="src/app.component.ts"></code-example>
 
-You just have to make sure, in this case, that you're supplying an array of objects because that's the type of `Item` and is what the nested component, `ItemListComponent`, expects.
+Sólo tienes que asegurarte, en este caso, de que provees un array de objectos pues ese es el tipo de `item` y lo que el componente anidado, `ItemListComponent`, espera.
 
-In this example, `AppComponent` specifies a different `item` object
-(`currentItems`) and passes it to the nested `ItemListComponent`. `ItemListComponent` was able to use `currentItems` because it matches what an `Item` object is according to `item.ts`. The `item.ts` file is where
-`ItemListComponent` gets its definition of an `item`.
+En este ejemplo, `AppComponent` declara un objeto `item` diferente
+(`currentItems`) y lo enlaza al `ItemListComponent` anidado. `ItemListComponent` es capaz de recibir `currentItems` pues éste
+corresponde a la definición de `Item` dada por `item.ts`. El archivo `item.ts` es aquél donde
+`ItemListComponent` obtiene su definición de un `item`.
 
-## Remember the brackets
+## Recordar los corchetes
 
-The brackets, `[]`, tell Angular to evaluate the template expression.
-If you omit the brackets, Angular treats the string as a constant
-and *initializes the target property* with that string:
+Los corchetes (__square brackets__), `[]`, indican para Angular que debe evaluar la expresión de plantilla.
+Si omites los corchetes, Angular trata al string como una constante
+e *inicializa la propiedad de destino* con ese string:
 
 <code-example path="property-binding/src/app/app.component.html" region="no-evaluation" header="src/app.component.html"></code-example>
 
 
-Omitting the brackets will render the string
-`parentItem`, not the value of `parentItem`.
+Omitir los corchetes renderizará el texto
+`parentItem`, no el valor de la propiedad `parentItem`.
 
 ## One-time string initialization
 
