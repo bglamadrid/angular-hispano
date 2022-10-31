@@ -169,7 +169,7 @@ Omitir los corchetes renderizará el texto
 
 ## Inicialización aislada de string
 
-*Sí deberías* omitir los corchetes cuando todas las condiciones siguientes se cumplen:
+*Sí deberías* omitir los corchetes cuando se cumplan todas las siguientes condiciones:
 
 * La propiedad destino acepta un valor de tipo string.
 * El string es un valor fijo que puedes ingresar directamente en la plantilla.
