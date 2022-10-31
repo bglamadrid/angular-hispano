@@ -97,7 +97,7 @@ varios atributos comunes. Entre ellos se incluyen `class`/`className`, `innerHtm
 El evaluamiento de una expresión de plantilla no debería tener efectos secundarios visibles.
 El propio lenguaje de expresión, o la manera en que escribes expresiones de plantilla,
 favorece este aspecto hasta cierto punto;
-no puedes simplemente asignar valores a cualquier cosa dentro de una expresión de enlace de propiedad
+no puedes asignar valores a cualquier cosa dentro de una expresión de enlace de propiedad
 ni usar los operadores de incremento o reducción.
 
 Pero por ejempo, podrías tener una expresión que invocase una propiedad o método el cual tuviera
