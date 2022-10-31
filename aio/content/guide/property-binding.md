@@ -10,7 +10,7 @@ Echa un vistazo a <live-example></live-example>, un ejemplo en acción usando lo
 
 </div>
 
-## Enlace de una sola vía (One-way binding)
+## De una dirección (One-way)
 
 Este tipo de enlace permite que un dato fluya en una única dirección,
 desde una propiedad origen de un componente hacia la propiedad destino de un elemento.
