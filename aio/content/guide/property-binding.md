@@ -106,7 +106,7 @@ lo que `getFoo()` hace. Si `getFoo()` cambia algo más
 y estás enlazando algún dato a ese algo más,
 Angular podría no mostrar el dato correcto. O Angular podría detectar el
 cambio y levantar una advertencia o un error.
-Como consejo y buena práctica, es mejor atenerse a enlazar propiedades y métodos que devuelvan
+Como buena práctica, es mejor atenerse a enlazar propiedades y métodos que devuelvan
 valores para evitar efectos secundarios.
 
 ## Devolver el valor adecuado
@@ -116,7 +116,7 @@ que la propiedad destino espera.
 Deberías devolver un string si la propiedad destino espera un string, o un número si ésta
 espera un número, un objeto si lo que espera es un objeto, y así consecutivamente.
 
-En el siguiente ejemplo, la propiedad `childItem` (__itemHijo__) del `ItemDetailComponent` espera un string, exactamente lo mismo que verás que es enviado a través del enlace de propiedad:
+En el siguiente ejemplo, la propiedad `childItem` (__itemHijo__) del `ItemDetailComponent` espera un string, exactamente lo mismo que es enviado a través del enlace de propiedad:
 
 <code-example path="property-binding/src/app/app.component.html" region="model-property-binding" header="src/app/app.component.html"></code-example>
 
@@ -152,7 +152,7 @@ Sólo tienes que asegurarte, en este caso, de que provees un array de objectos p
 
 En este ejemplo, `AppComponent` declara un objeto `item` diferente
 (`currentItems`) y lo enlaza al `ItemListComponent` anidado. `ItemListComponent` es capaz de recibir `currentItems` pues éste
-corresponde a la definición de `Item` dada por `item.ts`. El archivo `item.ts` es aquél donde
+corresponde a la definición de `Item` dada por `item.ts`. El archivo `item.ts` es donde
 `ItemListComponent` obtiene su definición de un `item`.
 
 ## Recordar los corchetes
