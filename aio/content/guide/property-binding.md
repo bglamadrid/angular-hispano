@@ -128,7 +128,7 @@ Y como se aprecia aquí, el `parentItem` (__itemPadre__) del `AppComponent` es u
 
 ### Pasando objetos
 
-El sencillo ejemplo anterior demostró el enlazado de un string. No obstante, para enlazar un objeto,
+El ejemplo anterior demostró el enlazado de un string. No obstante, para enlazar un objeto,
 se usa el mismo fundamento y sintaxis.
 
 En el siguiente escenario, el `ItemListComponent` se anida dentro del `AppComponent` y la propiedad `items` espera recibir un array de objetos.
