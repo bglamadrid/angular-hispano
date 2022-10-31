@@ -105,15 +105,15 @@ efectos secundarios. La expresión internamente podría llamar a un método `get
 lo que `getFoo()` hace. Si `getFoo()` cambia algo más
 y estás enlazando algún dato a ese algo más,
 Angular podría no mostrar el dato correcto. O Angular podría detectar el
-cambio y levantar una advertencia o un error.
+cambio y lanzar una advertencia o un error.
 Como buena práctica, es mejor atenerse a enlazar propiedades y métodos que devuelvan
 valores para evitar efectos secundarios.
 
-## Devolver el valor adecuado
+## Devolver el tipo correcto
 
-Toda expresión de plantilla debiese ser evaluada con el tipo de valor
+Toda expresión de plantilla debe ser evaluada con el tipo de valor
 que la propiedad destino espera.
-Deberías devolver un string si la propiedad destino espera un string, o un número si ésta
+Devuelve un string si la propiedad destino espera un string, o un número si ésta
 espera un número, un objeto si lo que espera es un objeto, y así consecutivamente.
 
 En el siguiente ejemplo, la propiedad `childItem` (__itemHijo__) del `ItemDetailComponent` espera un string, exactamente lo mismo que es enviado a través del enlace de propiedad:
@@ -126,7 +126,7 @@ Al revisar el `ItemDetailComponent` se puede verificar que la propiedad con el d
 Y como se aprecia aquí, el `parentItem` (__itemPadre__) del `AppComponent` es un string, justamente lo que `ItemDetailComponent` espera:
 <code-example path="property-binding/src/app/app.component.ts" region="parent-data-type" header="src/app/app.component.ts"></code-example>
 
-### Enlazar objetos
+### Pasando objetos
 
 El sencillo ejemplo anterior demostró el enlazado de un string. No obstante, para enlazar un objeto,
 se usa el mismo fundamento y sintaxis.
@@ -148,7 +148,7 @@ indicar un item diferente en `app.component.ts` de forma que el nuevo item se re
 
 <code-example path="property-binding/src/app/app.component.ts" region="pass-object" header="src/app.component.ts"></code-example>
 
-Sólo tienes que asegurarte, en este caso, de que provees un array de objectos pues ese es el tipo de `item` y lo que el componente anidado, `ItemListComponent`, espera.
+Sólo tienes que asegurarte, en este caso, de que provees un array de objetos porque es el tipo de `item` y lo que el componente anidado, `ItemListComponent`, espera.
 
 En este ejemplo, `AppComponent` declara un objeto `item` diferente
 (`currentItems`) y lo enlaza al `ItemListComponent` anidado. `ItemListComponent` es capaz de recibir `currentItems` pues éste
@@ -157,7 +157,7 @@ corresponde a la definición de `Item` dada por `item.ts`. El archivo `item.ts` 
 
 ## Recordar los corchetes
 
-Los corchetes (__square brackets__), `[]`, indican para Angular que debe evaluar la expresión de plantilla.
+Los corchetes (__square brackets__), `[]`, indican a Angular que debe evaluar la expresión de plantilla.
 Si omites los corchetes, Angular trata al string como una constante
 e *inicializa la propiedad de destino* con ese string:
 
@@ -187,7 +187,7 @@ El enlace de `[item]`, en cambio, se mantiene unido a la propiedad `currentItems
 ## Enlace de propiedad vs. interpolación
 
 A menudo tienes la posibilidad de elegir entre realizar uniones de datos con interpolación o con enlace de propiedad.
-Cada uno de los pares de unión siguientes tienen el mismo efecto:
+Los siguientes pares de enlaces tienen el mismo efecto:
 
 <code-example path="property-binding/src/app/app.component.html" region="property-binding-interpolation" header="src/app/app.component.html"></code-example>
 
@@ -210,10 +210,10 @@ En la plantilla del componente, este contenido podría ser interpolado:
 Afortunadamente, los enlaces de Angular están alertas ante la posibilidad de encontrar HTML peligroso. En el caso anterior,
 el código HTML se muestra tal cual, y la porción Javascript no se ejecuta. Angular **no permite**
 que se filtre código HTML con etiquetas script al navegador, ni por medio de interpolación
-o enlaces de propiedad.
+ni de enlaces de propiedad.
 
-En el ejemplo siguiente, sin embargo, Angular [sanitiza](guide/security#sanitization-and-security-contexts)
-los values antes de mostrarlos.
+En el ejemplo siguiente, sin embargo, Angular sanea (_sanitizes_)(guide/security#sanitization-and-security-contexts)
+los valores antes de mostrarlos.
 
 <code-example path="property-binding/src/app/app.component.html" region="malicious-content" header="src/app/app.component.html"></code-example>
 
