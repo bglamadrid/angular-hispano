@@ -177,7 +177,7 @@ Omitir los corchetes renderizará el texto
 
 Esta es la manera en que inicializas atributos en la sintaxis estándar de HTML, y funciona
 sin problemas para inicializar directivas y propiedades de componentes.
-El ejemplo siguiente inicializa la propiedad `prefix` del `StringInitComponent` con un string fijo,
+El siguiente ejemplo inicializa la propiedad `prefix` del `StringInitComponent` con un string fijo,
 y no una expresión de plantilla. Angular le asigna el valor y se olvida de ella.
 
 <code-example path="property-binding/src/app/app.component.html" region="string-init" header="src/app/app.component.html"></code-example>
