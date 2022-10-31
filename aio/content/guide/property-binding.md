@@ -76,7 +76,7 @@ como en el caso del ejemplo que sigue:
 
 <code-example path="property-binding/src/app/app.component.html" region="class-binding" header="src/app/app.component.html"></code-example>
 
-Técnicamente, Angular está correspondiendo el nombre como si se tratara de una directiva `@Input()`,
+Técnicamente, Angular está enlazando el nombre a una directiva `@Input()`,
 o un nombre de propiedad incluido en el array `inputs` de la directiva,
 o una propiedad decorada con `@Input()`.
 En tales casos se realiza un mapeo hacia las propiedades de la directiva.
