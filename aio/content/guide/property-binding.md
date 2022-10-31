@@ -33,7 +33,7 @@ enlazar la propiedad `src` de un elemento de imagen desde la propiedad `itemImag
 <code-example path="property-binding/src/app/app.component.html" region="property-binding" header="src/app/app.component.html"></code-example>
 
 En otro ejemplo, enlazamos la propiedad `colSpan`. Ten cuidado de no confundirla con `colspan`,
-la que es el atributo HTML escrito con una `s` minúscula.
+que es el atributo HTML, escrito con una `s` minúscula.
 
 <code-example path="property-binding/src/app/app.component.html" region="colSpan" header="src/app/app.component.html"></code-example>
 
