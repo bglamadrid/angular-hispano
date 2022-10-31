@@ -1,7 +1,7 @@
 
 # Enlace de propiedad `[propiedad]`
 
-Puedes usar los enlaces de propiedad para _asignar valores_ a datos dentro de elementos (_propiedades_) que posean decoradores de directiva `@Input()`.
+Usa los enlaces de propiedad para _asignar valores_ a datos dentro de elementos (_propiedades_) que posean decoradores de directiva `@Input()`.
 
 <div class="alert is-helpful">
 
