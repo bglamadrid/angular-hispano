@@ -67,7 +67,7 @@ También es posible usar la nomenclatura alternativa, añadiendo el prefijo `bin
 <code-example path="property-binding/src/app/app.component.html" region="bind-prefix" header="src/app/app.component.html"></code-example>
 
 En la mayoría de los casos, el nombre del destino es de una propiedad, incluso
-si parece ser el nombre de un atributo.
+cuando parece ser el nombre de un atributo.
 En este caso, `src` es el nombre de una propiedad del elemento `<img>`.
 
 Las propiedades de elemento pueden ser destinos comunes de enlace,
