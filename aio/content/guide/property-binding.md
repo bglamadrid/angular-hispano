@@ -85,7 +85,7 @@ Si el nombre no se corresponde con una propiedad de una directiva o elemento con
 
 <div class="alert is-helpful">
 
-Aunque el nombre del destino usualmente es el nombre de una propiedad,
+Aunque el destino usualmente es el nombre de una propiedad,
 Angular posee un mapeo automático de attributo-a-propiedad para
 varios atributos comunes. Entre ellos se incluyen `class`/`className`, `innerHtml`/`innerHTML`, y
 `tabindex`/`tabIndex`.
