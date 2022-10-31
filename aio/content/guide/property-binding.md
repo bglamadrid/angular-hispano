@@ -49,7 +49,7 @@ Otro ejemplo, asignar un valor a la propiedad de una directiva:
 
 <code-example path="property-binding/src/app/app.component.html" region="class-binding" header="src/app/app.component.html"></code-example>
 
-Otro más es asignar un objeto como valor a la propiedad de un componente&mdash;la que es una excelente
+Otro más es asignar un objeto como valor a la propiedad de un componente&mdash;que es una excelente
 manera de comunicar componentes padres con hijos:
 
 <code-example path="property-binding/src/app/app.component.html" region="model-property-binding" header="src/app/app.component.html"></code-example>
