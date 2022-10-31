@@ -98,7 +98,7 @@ El evaluamiento de una expresión de plantilla no debería tener efectos secunda
 El propio lenguaje de expresión, o la manera en que escribes expresiones de plantilla,
 favorece este aspecto hasta cierto punto;
 no puedes asignar valores a cualquier cosa dentro de una expresión de enlace de propiedad
-ni usar los operadores de incremento o reducción.
+ni usar los operadores de incremento o decremento.
 
 Pero por ejempo, podrías tener una expresión que invocase una propiedad o método el cual tuviera
 efectos secundarios. La expresión internamente podría llamar a un método `getFoo()` y sólo tú sabrías
