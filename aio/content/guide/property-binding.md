@@ -219,8 +219,8 @@ los valores antes de mostrarlos.
 
 La interpolación maneja las etiquetas `<script>` de forma distinta que
 los enlaces de propiedad pero ambas metodologías renderizan el
-contenido de forma segura. La salida representada por el navegador
-de los ejemplos de `evilTitle` anteriores se muestra a continuación.
+contenido de forma segura. A continuación, el resultado del navegador
+de los ejemplos de `evilTitle`.
 
 <code-example language="bash">
 "Template <script>alert("evil never sleeps")</script> Syntax" is the interpolated evil title.
