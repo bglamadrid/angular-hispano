@@ -5,7 +5,7 @@ Puedes usar los enlaces de propiedad para _asignar valores_ a datos dentro de el
 
 <div class="alert is-helpful">
 
-Echa un vistazo al <live-example></live-example>, un ejemplo en acción usando los bloques de código de esta guía.
+Echa un vistazo a <live-example></live-example>, un ejemplo en acción usando los fragmentos de código de esta guía.
 
 </div>
 
