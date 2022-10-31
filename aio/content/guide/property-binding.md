@@ -58,7 +58,7 @@ manera de comunicar componentes padres con hijos:
 
 Una propiedad de elemento encerrada en corchetes (_square brackets_) se identifica
 como propiedad de destino.
-En el código a continuación, la propiedad destino es `src`, del elemento de imagen.
+En el código a continuación, la propiedad destino del elemento de imagen es `src`.
 
 <code-example path="property-binding/src/app/app.component.html" region="property-binding" header="src/app/app.component.html"></code-example>
 
