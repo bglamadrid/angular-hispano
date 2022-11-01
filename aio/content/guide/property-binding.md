@@ -1,7 +1,7 @@
 
 # Enlace de propiedad `[propiedad]`
 
-Usa los enlaces de propiedad para asignar valores (_set_) a propiedades de elementos o
+Usa los enlaces de propiedad para asignar valores (_set_) a propiedades de ciertos elementos o
 decoradores de directiva `@Input()`.
 
 <div class="alert is-helpful">
