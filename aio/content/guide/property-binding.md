@@ -18,7 +18,7 @@ desde una propiedad origen de un componente hacia la propiedad destino de un ele
 No puedes usar enlaces de propiedad
 para leer ni recibir valores desde elemento destino. Asimismo, tampoco puedes utilizar
 enlaces de propiedad para llamar a métodos del elemento destino.
-Si el elemento en cuestión dispara eventos, puedes instalar un escucha utilizando [enlaces de eventos](guide/event-binding).
+Si el elemento en cuestión dispara eventos, puedes añadir un escucha utilizando [enlaces de eventos](guide/event-binding).
 
 Si necesitas leer la propiedad de un elemento destino o llamar a alguno de sus métodos,
 echa un vistazo a la referencia de la API para los decoradores [ViewChild](api/core/ViewChild) y
